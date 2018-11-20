@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 import kz.education.tursun.personalworkfive.R;
 
 public class MuseumsFragment extends Fragment {
-    private RecyclerView mList;
-    private MuseumAdapter mAdapter;
 
     public static MuseumsFragment getInstance(){
         return new MuseumsFragment();
@@ -29,10 +27,9 @@ public class MuseumsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        //mEmpty = view.findViewById(R.id.empty);
-        mList = view.findViewById(R.id.list);
+        RecyclerView mList = view.findViewById(R.id.list);
         mList.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new MuseumAdapter(getContext());
+        MuseumAdapter mAdapter = new MuseumAdapter(getContext());
         mList.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         return view;

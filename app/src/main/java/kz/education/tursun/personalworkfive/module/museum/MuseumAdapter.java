@@ -21,7 +21,7 @@ public class MuseumAdapter extends RecyclerView.Adapter<MuseumAdapter.MuseumView
     private List<Museum> museums = new ArrayList<>();
     private Context context;
 
-    public MuseumAdapter(Context context) {
+    MuseumAdapter(Context context) {
         museums.add(new Museum("Museum #1", "Museum #1 address", R.drawable.elephant, "09:00-17:00"));
         museums.add(new Museum("Museum #2", "Museum #2 address", R.drawable.kill, "08:00-18:00"));
         museums.add(new Museum("Museum #3", "Museum #3 address", R.drawable.london, "10:00-19:00"));
@@ -41,7 +41,7 @@ public class MuseumAdapter extends RecyclerView.Adapter<MuseumAdapter.MuseumView
         holder.title.setText(museum.getTitle());
         holder.address.setText(museum.getAddress());
         holder.time.setText(museum.getTime());
-        Picasso.get().load(museum.getResId());
+        Picasso.get().load(museum.getResId()).into(holder.icon);
     }
 
     @Override
@@ -50,13 +50,13 @@ public class MuseumAdapter extends RecyclerView.Adapter<MuseumAdapter.MuseumView
         return museums.size();
     }
 
-    public class MuseumViewHolder extends RecyclerView.ViewHolder{
+    class MuseumViewHolder extends RecyclerView.ViewHolder{
         TextView title;
         TextView address;
         TextView time;
         ImageView icon;
 
-        public MuseumViewHolder(View itemView) {
+        MuseumViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             address = itemView.findViewById(R.id.address);

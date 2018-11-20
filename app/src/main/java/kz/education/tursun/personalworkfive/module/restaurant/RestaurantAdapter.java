@@ -21,7 +21,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
     private List<Restaurant> restaurants = new ArrayList<>();
     private Context context;
 
-    public RestaurantAdapter(Context context) {
+    RestaurantAdapter(Context context) {
         this.context = context;
         restaurants.add(new Restaurant("Restaurant #1", "Restaurant #1 address", R.drawable.banket));
         restaurants.add(new Restaurant("Restaurant #1", "Restaurant #1 address", R.drawable.unico_restaurants));
@@ -40,7 +40,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         Restaurant restaurant = restaurants.get(position);
         holder.title.setText(restaurant.getTitle());
         holder.address.setText(restaurant.getAddress());
-        Picasso.get().load(restaurant.getResId());
+        Picasso.get().load(restaurant.getResId()).into(holder.icon);
     }
 
     @Override
@@ -49,12 +49,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         return restaurants.size();
     }
 
-    public class RestaurantViewHolder extends RecyclerView.ViewHolder{
+    class RestaurantViewHolder extends RecyclerView.ViewHolder{
         TextView title;
         TextView address;
         ImageView icon;
 
-        public RestaurantViewHolder(View itemView) {
+        RestaurantViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             address = itemView.findViewById(R.id.address);

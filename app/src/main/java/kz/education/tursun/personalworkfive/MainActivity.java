@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -19,7 +18,6 @@ import kz.education.tursun.personalworkfive.module.restaurant.RestaurantsFragmen
 public class MainActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mPager;
-    private PagerAdapter mPagerAdapter;
     private List<Fragment> fragments =new ArrayList<>();
 
     @Override
@@ -43,13 +41,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         mPager.setAdapter(adapter);
-        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.resturants));
-        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.museums));
-        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.hostels));
-//        mTabLayout.(0).setText(getResources().getString(R.string.favourites));
-//        mTabLayout.getTabAt(1).setText(getResources().getString(R.string.service_payment));
-//        mTabLayout.getTabAt(2).setText(getResources().getString(R.string.history));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getResources().getString(R.string.resturants)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getResources().getString(R.string.museums)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getResources().getString(R.string.hostels)));
         mTabLayout.setTabMode(TabLayout.MODE_FIXED);
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
     }
 }

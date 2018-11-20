@@ -6,12 +6,13 @@
 
     <ImageView
         android:id="@+id/icon"
+        android:layout_centerVertical="true"
         android:layout_width="60dp"
         android:layout_height="60dp" />
 
     <TextView
         android:id="@+id/title"
-        android:padding="4dp"
+        android:padding="8dp"
         android:layout_toRightOf="@+id/icon"
         android:layout_toEndOf="@+id/icon"
         android:layout_width="match_parent"
@@ -22,7 +23,13 @@
         android:layout_below="@+id/title"
         android:layout_toRightOf="@+id/icon"
         android:layout_toEndOf="@+id/icon"
-        android:padding="4dp"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <View
+        android:layout_below="@+id/address"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
 </RelativeLayout>

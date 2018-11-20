@@ -18,7 +18,7 @@ public class HostelAdapter extends RecyclerView.Adapter<HostelAdapter.HostelView
     private List<Hostel> hostels = new ArrayList<>();
     private Context context;
 
-    public HostelAdapter(Context context) {
+    HostelAdapter(Context context) {
         buildHostels();
         this.context = context;
     }
@@ -49,11 +49,11 @@ public class HostelAdapter extends RecyclerView.Adapter<HostelAdapter.HostelView
         return hostels.size();
     }
 
-    public class HostelViewHolder extends RecyclerView.ViewHolder{
+    class HostelViewHolder extends RecyclerView.ViewHolder{
         TextView title;
         TextView address;
 
-        public HostelViewHolder(View itemView) {
+        HostelViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             address = itemView.findViewById(R.id.address);
